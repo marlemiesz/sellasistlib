@@ -6,5 +6,6 @@
     </testsuites>
     <php>
         <env name="API_KEY" value="fakeApiKey" />
+        <env name="API_NAME" value="ShopName" />
     </php>
 </phpunit>

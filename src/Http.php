@@ -4,10 +4,12 @@
 namespace Marlemiesz\SellasistLib;
 
 
+use GuzzleHttp\Client;
+
 class Http
 {
 
-    private \Guzzle\Http\Client $http;
+    private Client $http;
     private string $apiKey;
 
     /**
@@ -17,19 +19,25 @@ class Http
      */
     public function __construct(string $url, string $apiKey)
     {
-        $this->http = new \Guzzle\Http\Client($url);
+        var_dump($url);
+        $this->http = new Client([
+            'base_uri' => $url
+        ]);
         $this->apiKey = $apiKey;
     }
 
     public function get($uri)
     {
-        return $this->http->get($uri, $this->getHeader());
+        return $this->http->request("GET", $uri, [
+            'headers' => $this->getHeader()
+        ]);
     }
 
     private function getHeader():array
     {
         return [
-            'apiKey' => $this->apiKey
+            'apiKey' => $this->apiKey,
+            'content-type' => 'application/json'
         ];
     }
 
