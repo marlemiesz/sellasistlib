@@ -1,0 +1,23 @@
+{
+    "name": "marlemiesz/sellasistlib",
+    "type": "standard",
+    "description": "Integration with sellasist",
+    "homepage": "https://github.com/php-pds/skeleton",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Marlemiesz\\SellasistLib\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Marlemiesz\\SellasistLib\\": "tests/"
+        }
+    },
+    "require-dev": {
+      "phpunit/phpunit": "^9"
+    },
+    "require": {
+      "guzzlehttp/guzzle": "v3.8.1"
+    }
+}
