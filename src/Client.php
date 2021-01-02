@@ -5,8 +5,12 @@ namespace Marlemiesz\SellasistLib;
 
 
 use Marlemiesz\SellasistLib\Collection\Products;
+use Marlemiesz\SellasistLib\Deserialize\ProductDeserialize;
 use Marlemiesz\SellasistLib\Deserialize\ProductsDeserialize;
+use Marlemiesz\SellasistLib\Model\Product;
+use Marlemiesz\SellasistLib\Request\ProductGetByIdRequest;
 use Marlemiesz\SellasistLib\Request\ProductGetRequest;
+use Marlemiesz\SellasistLib\Serialize\ProductGetIdSerialize;
 
 class Client
 {
@@ -40,5 +44,18 @@ class Client
     public function getProducts():Products
     {
         return (new ProductGetRequest($this->http, new ProductsDeserialize()))->exec();
+    }
+
+    /**
+     * @param int $id
+     * @return Product
+     */
+    public function getProduct(int $id):Product
+    {
+        return (new ProductGetByIdRequest(
+            $this->http,
+            new ProductDeserialize(),
+            new ProductGetIdSerialize($id)
+        ))->exec();
     }
 }

@@ -3,6 +3,7 @@
 namespace Marlemiesz\SellasistLib;
 
 use Marlemiesz\SellasistLib\Collection\Products;
+use Marlemiesz\SellasistLib\Model\Product;
 use Marlemiesz\SellasistLib\Model\ProductList;
 use PHPUnit\Framework\TestCase;
 
@@ -29,5 +30,18 @@ class ClientTest extends TestCase
 
         $this->assertInstanceOf(ProductList::class, $products[0]);
 
+    }
+
+    public function testGetProduct()
+    {
+        $products = $this->client->getProducts();
+
+        $id = $products[count($products)-1]->getId();
+
+        $product = $this->client->getProduct($id);
+
+        $this->assertInstanceOf(Product::class, $product);
+
+        $this->assertNotNull($product->getId());
     }
 }
