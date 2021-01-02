@@ -5,6 +5,7 @@ namespace Marlemiesz\SellasistLib;
 
 
 use GuzzleHttp\Client;
+use GuzzleHttp\Psr7\Response;
 
 class Http
 {
@@ -19,14 +20,13 @@ class Http
      */
     public function __construct(string $url, string $apiKey)
     {
-        var_dump($url);
         $this->http = new Client([
             'base_uri' => $url
         ]);
         $this->apiKey = $apiKey;
     }
 
-    public function get($uri)
+    public function get($uri):Response
     {
         return $this->http->request("GET", $uri, [
             'headers' => $this->getHeader()

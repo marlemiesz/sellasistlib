@@ -4,9 +4,9 @@
 namespace Marlemiesz\SellasistLib\Collection;
 
 
-use Marlemiesz\SellasistLib\Model\Product;
+use Marlemiesz\SellasistLib\Model\ProductList;
 
-class Products extends \ArrayObject
+class Products extends \ArrayObject implements Collection
 {
     /**
      * @param mixed $index
@@ -14,8 +14,8 @@ class Products extends \ArrayObject
      */
     public function offsetSet($index, $newval)
     {
-        if ($newval instanceof Product) {
-            throw new \InvalidArgumentException("Item must be instance of Marlemiesz\SellasistLib\Model\Product");
+        if (!($newval instanceof ProductList)) {
+            throw new \InvalidArgumentException("Item must be instance of Marlemiesz\SellasistLib\Model\ProductList");
         }
 
         parent::offsetSet($index, $newval);

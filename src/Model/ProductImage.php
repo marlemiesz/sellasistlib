@@ -4,7 +4,7 @@
 namespace Marlemiesz\SellasistLib\Model;
 
 
-class ProductImage extends \ArrayObject
+class ProductImage extends \ArrayObject implements Model
 {
     /**
      * @param mixed $index

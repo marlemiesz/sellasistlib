@@ -4,7 +4,7 @@
 namespace Marlemiesz\SellasistLib\Model;
 
 
-class Product
+class Product implements Model
 {
     private string $catalog;
     private string $ean;
@@ -23,9 +23,13 @@ class Product
      * @var ProductImage
      */
     private ProductImage $images;
+    private int $id;
+    private string $name;
 
     /**
      * Product constructor.
+     * @param int $id
+     * @param string $name
      * @param string $catalog
      * @param string $ean
      * @param string $symbol
@@ -42,6 +46,8 @@ class Product
      * @param ProductImage $images
      */
     public function __construct(
+        int $id,
+        string $name,
         string $catalog,
         string $ean,
         string $symbol,
@@ -72,6 +78,8 @@ class Product
         $this->description = $description;
         $this->description_short = $description_short;
         $this->images = $images;
+        $this->id = $id;
+        $this->name = $name;
     }
 
     /**
