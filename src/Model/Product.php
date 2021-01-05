@@ -49,7 +49,7 @@ class Product implements Model
         string $ean,
         bool $status,
         ProductImage $images,
-        string $description
+        ?string $description
     )
     {
 
