@@ -198,7 +198,7 @@ class Product implements Model
     /**
      * @return string
      */
-    public function getEan(): string
+    public function getEan(): ?string
     {
         return $this->ean;
     }
@@ -206,7 +206,7 @@ class Product implements Model
     /**
      * @param string $ean
      */
-    public function setEan(string $ean): void
+    public function setEan(?string $ean): void
     {
         $this->ean = $ean;
     }
@@ -246,7 +246,7 @@ class Product implements Model
     /**
      * @return string
      */
-    public function getDescription(): string
+    public function getDescription(): ?string
     {
         return $this->description;
     }
@@ -254,7 +254,7 @@ class Product implements Model
     /**
      * @param string $description
      */
-    public function setDescription(string $description): void
+    public function setDescription(?string $description): void
     {
         $this->description = $description;
     }
