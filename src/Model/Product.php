@@ -46,7 +46,7 @@ class Product implements Model
         bool $promotion,
         int $tax,
         int $quantity,
-        string $ean,
+        ?string $ean,
         bool $status,
         ProductImage $images,
         ?string $description
