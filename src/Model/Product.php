@@ -14,13 +14,13 @@ class Product implements Model
     private bool $promotion;
     private int $tax;
     private int $quantity;
-    private string $ean;
+    private ?string $ean;
     private bool $status;
     /**
      * @var ProductImage
      */
     private ProductImage $images;
-    private string $description;
+    private ?string $description;
 
     /**
      * Product constructor.
